@@ -1,10 +1,7 @@
-def manual_check_guide(GuideType: str):
+def manual_check_guide():
     """
     Handles manual guides for the audit unhardening machine.
 
-    Args:
-        GuideType (str): The type of guide to return. Options are "locals", "service", or "network".
-    
     Returns:
         str: The content of the requested guide.
     """
@@ -67,20 +64,12 @@ settings.
 - Clients for Microsoft Networks
 - File and printer sharing for Microsoft Networks
 """
-
-    if GuideType.lower() == "locals":
-        return locals
-    elif GuideType.lower() == "service":
-        return Service
-    elif GuideType.lower() == "network":
-        return Network
+    # combine the three guides into a single string
+    return f"{locals}\n\n{Service}\n\n{Network}"
     
-def symantec_manual_guide(GuideType: str):
+def symantec_manual_guide():
     """
     Provides a manual guide for checking the Symantec service.
-
-    Args:
-        GuideType (str): The type of guide to return. Options are "disable" or "enable".
 
     Returns:
         str: The content of the Symantec manual guide.
@@ -100,7 +89,5 @@ If the status is for "(STATE" is 1 STOPPED), Auditor can follow these steps to e
 2. Type "smc -start"
 3. Recheck the status of Symantec with the tool, double check manually that Symantec is enabled as well. The tool is not perfect D:
 """
-    if GuideType.lower() == "disable":
-        return disable
-    elif GuideType.lower() == "enable":
-        return enable
+    # combine the two guides into a single string
+    return f"{disable}\n\n{enable}"
