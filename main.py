@@ -656,33 +656,27 @@ async def view_log_file(host: str, username: str, password: str):
     name = "manual_check_guide",
     description = "Get manual guides for the audit unhardening machine."
 )
-async def manual_check_guide_tool(GuideType: str):
+async def manual_check_guide_tool():
     """
     Get manual guides for the audit unhardening machine.
-
-    Args:
-        GuideType (str): The type of guide to return. Options are "locals", "service", or "network".
 
     Returns:
         A string containing the content of the requested guide.
     """
-    return manual_check_guide(GuideType)
+    return manual_check_guide()
 
 @mcp.tool(
     name = "symantec_manual_guide",
     description = "Get manual guides for checking the Symantec service."
 )
-async def symantec_manual_guide_tool(GuideType: str):
+async def symantec_manual_guide_tool():
     """
     Get manual guides for checking the Symantec service.
-
-    Args:
-        GuideType (str): The type of guide to return. Options are "disable" or "enable".
 
     Returns:
         A string containing the content of the requested guide.
     """
-    return symantec_manual_guide(GuideType)
+    return symantec_manual_guide()
 
 
 if __name__ == "__main__":
